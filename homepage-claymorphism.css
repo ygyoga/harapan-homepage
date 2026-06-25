@@ -1,0 +1,65 @@
+/* ============================================================
+   HARAPAN Homepage — Tema Claymorphism (style terpisah)
+   Drop <link rel="stylesheet" href="homepage-claymorphism.css"> di <head>.
+   Semua warna lewat CSS variable (:root + body.dark).
+   ============================================================ */
+  @font-face{ font-family:'Gotham'; font-weight:300; src:local('Gotham Light'),local('Gotham-Light'); }
+  @font-face{ font-family:'Gotham'; font-weight:400; src:local('Gotham Book'),local('Gotham-Book'); }
+  @font-face{ font-family:'Gotham'; font-weight:700; src:local('Gotham Bold'),local('Gotham-Bold'); }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --bg:#e9e1f7; --surface:#ece5fb; --surface2:#f1ecfd; --text:#2c2348; --text2:#6b6485; --muted:#9c93b8;
+    --accent:#5535C0; --accent2:#7B3FE4; --grad:linear-gradient(135deg,#7B3FE4,#5535C0);
+    --shd:rgba(150,120,210,.32); --shl:rgba(255,255,255,.92); --shd-soft:rgba(150,120,210,.24);
+    --chip:#e3daf6; --nav-bg:rgba(233,225,247,.82); --hr:rgba(150,120,210,.22);
+  }
+  body.dark{
+    --bg:#161226; --surface:#1d1834; --surface2:#221c3d; --text:#f0ecfb; --text2:#a99fc8; --muted:#6f6790;
+    --accent:#a47bff; --accent2:#7B3FE4; --grad:linear-gradient(135deg,#7B3FE4,#5535C0);
+    --shd:rgba(0,0,0,.44); --shl:rgba(120,90,190,.1); --shd-soft:rgba(0,0,0,.32);
+    --chip:#251f42; --nav-bg:rgba(22,18,38,.82); --hr:rgba(255,255,255,.1);
+  }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Gotham','Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; transition:background-color .4s ease, color .4s ease; }
+  .clay{ background:var(--surface); box-shadow:6px 6px 16px var(--shd), -5px -5px 14px var(--shl); }
+  .clay-sm{ background:var(--surface); box-shadow:4px 4px 11px var(--shd), -3px -3px 9px var(--shl); }
+  .clay-inset{ background:var(--bg); box-shadow:inset 4px 4px 10px var(--shd-soft), inset -4px -4px 10px var(--shl); }
+  .btn-grad{ background:var(--grad); color:#fff; box-shadow:7px 7px 18px rgba(123,63,228,.42), -4px -4px 12px var(--shl); }
+  .lift{ transition:transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease; }
+  .lift:hover{ transform:translateY(-5px); box-shadow:9px 9px 22px var(--shd), -7px -7px 18px var(--shl); }
+  .press{ transition:transform .12s ease, box-shadow .2s ease; }
+  .press:hover{ transform:translateY(-2px); }
+  .press:active{ transform:translateY(1px) scale(.985); box-shadow:4px 4px 10px rgba(123,63,228,.4); }
+  .navlink{ font-size:14px; color:var(--text2); font-weight:600; text-decoration:none; transition:color .2s; cursor:pointer; }
+  .navlink:hover{ color:var(--accent); }
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .6s ease, transform .65s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  .prod-stage{ position:relative; }
+  body.dark .prod-stage{ background:radial-gradient(circle at 50% 42%, rgba(150,105,255,.30), rgba(0,0,0,0) 68%), var(--bg); }
+  body.dark .prod-stage img{ filter:drop-shadow(0 10px 22px rgba(0,0,0,.55)); }
+  .hero-glow{ display:none; }
+  body.dark .hero-glow{ display:block; }
+  .chip{ background:var(--chip); box-shadow:inset 2px 2px 5px var(--shd-soft), inset -2px -2px 5px var(--shl); color:var(--accent); }
+  .hamburger{ display:none; }
+  .mobile-menu{ display:none; }
+  @keyframes floatA{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-16px); } }
+  @keyframes floatB{ 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-22px) rotate(2deg); } }
+  @keyframes spinSlow{ to{ transform:rotate(360deg); } }
+  @media (max-width:880px){
+    .desk-nav{ display:none !important; }
+    .hamburger{ display:flex !important; }
+    .hero-grid{ grid-template-columns:1fr !important; }
+    .hero-mockup{ display:none !important; }
+    .grid-4{ grid-template-columns:1fr 1fr !important; }
+    .grid-3{ grid-template-columns:1fr !important; }
+    .grid-6{ grid-template-columns:1fr 1fr !important; }
+    .hero-h1{ font-size:38px !important; }
+    .sec-pad{ padding-left:20px !important; padding-right:20px !important; }
+  }
+  @media (max-width:540px){
+    .grid-4{ grid-template-columns:1fr !important; }
+    .grid-6{ grid-template-columns:1fr !important; }
+    .hero-h1{ font-size:32px !important; }
+    .stats-row{ flex-direction:column !important; }
+  }
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; } html{ scroll-behavior:auto; } }
