@@ -213,3 +213,70 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* ===== Carousel Produk (Coverflow) — hero ===== */
+(function(){
+  var stage = document.getElementById('coverflow');
+  var label = document.getElementById('cfLabel');
+  if(!stage) return;
+  var items = Array.prototype.slice.call(stage.querySelectorAll('.cf-item'));
+  var N = items.length; if(!N) return;
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TRANS = 'transform .95s cubic-bezier(.25,.7,.2,1), opacity .95s ease, filter .95s ease';
+  var half = N/2, active = 0, timer = null;
+
+  var INTERVAL = 2600;
+  var SCALE_STEP = 0.30;
+  var OPACITY_STEP = 0.42;
+  var TILT = 15;
+
+  function layout(){
+    var spread = Math.max(120, Math.min(186, stage.clientWidth * 0.19));
+    items.forEach(function(el,i){
+      var d = i - active;
+      while(d >  half) d -= N;
+      while(d < -half) d += N;
+      var prev = el._d, wrapped = (prev !== undefined) && Math.abs(d - prev) > 1.01;
+      el._d = d;
+      var ad = Math.abs(d);
+      var tf = 'translate3d('+(d*spread)+'px,'+(ad*16)+'px,'+(-ad*90)+'px) '
+             + 'rotateY('+(d*-TILT)+'deg) scale('+Math.max(1-ad*SCALE_STEP,0.25)+')';
+      var opacity = Math.max(1 - ad*OPACITY_STEP, 0);
+      var filt = ad < 0.5
+        ? 'grayscale(0) drop-shadow(0 26px 36px rgba(85,53,192,.34))'
+        : 'grayscale(1)';
+      function apply(){
+        el.style.transform = tf;
+        el.style.opacity = String(opacity);
+        el.style.filter = filt;
+        el.style.zIndex = String(100 - Math.round(ad*10));
+      }
+      if(wrapped){
+        el.style.transition = 'none'; apply(); void el.offsetWidth;
+        el.style.transition = reduce ? 'none' : TRANS;
+      } else {
+        el.style.transition = reduce ? 'none' : TRANS; apply();
+      }
+    });
+    if(label){
+      var name = items[((active%N)+N)%N].getAttribute('data-name') || '';
+      if(label.textContent !== name){
+        label.style.opacity = '0';
+        setTimeout(function(){ label.textContent = name; label.style.opacity = '1'; }, 220);
+      }
+    }
+  }
+
+  layout();
+  window.addEventListener('resize', layout);
+  if(reduce) return;
+
+  function advance(){ active = (active - 1) % N; layout(); }
+  function start(){ timer = setInterval(advance, INTERVAL); }
+  function stop(){ clearInterval(timer); timer = null; }
+  start();
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : (timer || start()); });
+  stage.addEventListener('mouseenter', stop);
+  stage.addEventListener('mouseleave', function(){ if(!timer && !document.hidden) start(); });
+})();
