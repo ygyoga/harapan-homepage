@@ -15,7 +15,7 @@
 <div style="position:relative; width:100%; min-height:100vh; background:var(--bg); color:var(--text); font-family:'Gotham','Montserrat',sans-serif;">
 
   <nav style="position:sticky; top:0; z-index:100; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); background:var(--nav-bg);">
-    <div class="sec-pad" style="max-width:1180px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between;">
+    <div class="sec-pad" style="padding:16px 32px; display:flex; align-items:center; justify-content:space-between;">
       <img class="logo" src="https://portal.harapanmu.id/assets/Logo%20Harapan_full_for%20BG%20White.png" alt="HARAPAN" style="height:42px; width:auto;">
       <div class="desk-nav" style="display:flex; align-items:center; gap:14px;">
         <div class="clay-inset" style="display:inline-flex; padding:4px; gap:3px; border-radius:24px;">
@@ -57,12 +57,26 @@
       </div>
       <div class="hero-mockup" style="position:relative; display:flex; justify-content:center;">
         <span style="position:absolute; right:-18px; top:-34px; z-index:3;"><span id="floatCradle" class="clay" style="display:flex; align-items:center; justify-content:center; width:112px; height:112px; border-radius:50%; will-change:transform, opacity;"><img id="floatIcon" src="assets/harapan-icon.png" alt="" style="display:block; width:74px; height:74px; object-fit:contain; will-change:transform;"></span></span>
-        <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:20px; animation:floatA 6.5s ease-in-out infinite;">
-          <div class="hero-glow" aria-hidden="true" style="position:absolute; top:6%; left:50%; transform:translateX(-50%); width:90%; height:72%; background:radial-gradient(ellipse at center, rgba(150,105,255,.45), rgba(150,105,255,0) 70%); filter:blur(34px); z-index:0; pointer-events:none;"></div>
-          <img src="assets/legion.png" alt="Lenovo Legion — laptop gaming" style="position:relative; z-index:1; width:480px; max-width:100%; height:auto; filter:drop-shadow(0 32px 42px rgba(85,53,192,.34));">
-          <div class="clay" style="display:inline-flex; align-items:center; gap:11px; padding:14px 26px; border-radius:22px;">
-            <span style="width:9px; height:9px; border-radius:50%; background:var(--accent2); box-shadow:0 0 9px var(--accent2);"></span>
-            <span style="font-size:14.5px; font-weight:700; color:var(--text); letter-spacing:-.2px;">Lenovo Legion · Series Gaming</span>
+        <div class="cf-wrap">
+          <div class="cf-glow" aria-hidden="true"></div>
+          <div id="coverflow" class="cf-stage">
+            <div class="cf-item" data-name="Lenovo Legion · Series Gaming"><img src="assets/legion.png" alt="Lenovo Legion"></div>
+            <div class="cf-item" data-name="Lenovo IdeaPad Slim 3 · Notebook"><img src="assets/ideapad-slim3.png" alt="Lenovo IdeaPad Slim 3"></div>
+            <div class="cf-item" data-name="Lenovo IdeaCentre · All-in-One"><img src="assets/ideacentre-aio.png" alt="Lenovo IdeaCentre AIO"></div>
+            <div class="cf-item" data-name="Lenovo Tab · Motopad 60 Neo"><img src="assets/motopad-60.png" alt="Lenovo Motopad 60 Neo"></div>
+            <div class="cf-item" data-name="Lenovo 530 Wireless · Aksesoris"><img src="assets/mouse-530.png" alt="Lenovo 530 Wireless Mouse"></div>
+            <div class="cf-item" data-name="Lenovo Legion Go 2 · Handheld Gaming"><img src="assets/Legion-Go-2.png" alt="Lenovo Legion Go 2"></div>
+            <div class="cf-item" data-name="Lenovo IdeaCentre Tower · Desktop"><img src="assets/IDEACENTRE-Tower-17.png" alt="Lenovo IdeaCentre Tower 17"></div>
+            <div class="cf-item" data-name="Lenovo Yoga Tab · Tablet"><img src="assets/Lenovo-YOGA-tab.png" alt="Lenovo Yoga Tab"></div>
+            <div class="cf-item" data-name="Lenovo ThinkBook 14 2-in-1 · Notebook"><img src="assets/ThinkBook-14-2in1.png" alt="Lenovo ThinkBook 14 2-in-1"></div>
+            <div class="cf-item" data-name="Lenovo ThinkCentre Neo 50t · Desktop"><img src="assets/ThinkCentre-Neo-50t.png" alt="Lenovo ThinkCentre Neo 50t"></div>
+            <div class="cf-item" data-name="Lenovo Yoga Book 9 · Dual-Screen"><img src="assets/Yoga-Book-9.png" alt="Lenovo Yoga Book 9"></div>
+            <div class="cf-item" data-name="Lenovo Yoga 7 2-in-1 · Notebook"><img src="assets/Lenovo-YOGA-7-2in1.png" alt="Lenovo Yoga 7 2-in-1"></div>
+            <div class="cf-item" data-name="Lenovo Yoga Slim 7 Aura Edition · Notebook"><img src="assets/Lenovo-YOGA-Slim-7-Aura-Edition.png" alt="Lenovo Yoga Slim 7 Aura Edition"></div>
+          </div>
+          <div class="cf-label-pill">
+            <span class="cf-dot"></span>
+            <span id="cfLabel" class="cf-label">Lenovo Legion · Series Gaming</span>
           </div>
         </div>
       </div>
