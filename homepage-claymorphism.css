@@ -50,6 +50,7 @@
     .hamburger{ display:flex !important; }
     .hero-grid{ grid-template-columns:1fr !important; }
     .about-grid{ grid-template-columns:1fr !important; gap:34px !important; }
+    .partner-grid{ grid-template-columns:1fr !important; gap:30px !important; padding:34px 26px !important; }
     #floatCradle{ display:none !important; }
     .cf-stage{ height:250px !important; }
     .cf-item{ width:280px !important; height:190px !important; margin:-95px 0 0 -140px !important; }
