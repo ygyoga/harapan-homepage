@@ -49,7 +49,10 @@
     .desk-nav{ display:none !important; }
     .hamburger{ display:flex !important; }
     .hero-grid{ grid-template-columns:1fr !important; }
-    .hero-mockup{ display:none !important; }
+    .about-grid{ grid-template-columns:1fr !important; gap:34px !important; }
+    #floatCradle{ display:none !important; }
+    .cf-stage{ height:250px !important; }
+    .cf-item{ width:280px !important; height:190px !important; margin:-95px 0 0 -140px !important; }
     .grid-4{ grid-template-columns:1fr 1fr !important; }
     .grid-3{ grid-template-columns:1fr !important; }
     .grid-6{ grid-template-columns:1fr 1fr !important; }
