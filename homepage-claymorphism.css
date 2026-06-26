@@ -19,7 +19,7 @@
     --shd:rgba(0,0,0,.44); --shl:rgba(120,90,190,.1); --shd-soft:rgba(0,0,0,.32);
     --chip:#251f42; --nav-bg:rgba(22,18,38,.82); --hr:rgba(255,255,255,.1);
   }
-  html{ scroll-behavior:smooth; }
+  html{ scroll-behavior:smooth; overflow-x:clip; }
   body{ font-family:'Gotham','Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; transition:background-color .4s ease, color .4s ease; }
   .clay{ background:var(--surface); box-shadow:6px 6px 16px var(--shd), -5px -5px 14px var(--shl); }
   .clay-sm{ background:var(--surface); box-shadow:4px 4px 11px var(--shd), -3px -3px 9px var(--shl); }
@@ -52,7 +52,7 @@
     .about-grid{ grid-template-columns:1fr !important; gap:34px !important; }
     .partner-grid{ grid-template-columns:1fr !important; gap:30px !important; padding:34px 26px !important; }
     #floatCradle{ display:none !important; }
-    .cf-stage{ height:250px !important; }
+    .cf-stage{ height:250px !important; overflow:hidden !important; }
     .cf-item{ width:280px !important; height:190px !important; margin:-95px 0 0 -140px !important; }
     .grid-4{ grid-template-columns:1fr 1fr !important; }
     .grid-3{ grid-template-columns:1fr !important; }
